@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+
+
+
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>天天的博客</title>
+        <link>https://Ethan-Zou.gitub.io/</link>
+        <description>天天的个人博客</description>
+        <generator>Hugo 0.82.0 https://gohugo.io/</generator>
+        
+            <language>zh-CN</language>
+        
+        
+            <managingEditor>zoukun200@gmail.com (天天)</managingEditor>
+        
+        
+            <webMaster>zoukun200@gmail.com (天天)</webMaster>
+        
+        
+            <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+        
+        <lastBuildDate>Tue, 27 Jul 2021 01:59:50 &#43;0800</lastBuildDate>
+        
+            <atom:link rel="self" type="application/rss&#43;xml" href="https://Ethan-Zou.gitub.io/rss.xml" />
+        
+        
+            <item>
+                <title>Mysql 索引</title>
+                <link>https://Ethan-Zou.gitub.io/posts/mysql_index/</link>
+                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/mysql_index/</guid>
+                <pubDate>Sat, 27 Jul 2019 21:48:04 &#43;0800</pubDate>
+                
+                    <author>zoukun200@gmail.com (天天)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                <description>&lt;blockquote&gt;
+&lt;p&gt;Mysql 索引的数据结构，种类，以及如何优化&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>Mysql 优化</title>
+                <link>https://Ethan-Zou.gitub.io/posts/mysql_optimise/</link>
+                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/mysql_optimise/</guid>
+                <pubDate>Fri, 26 Jul 2019 17:01:29 &#43;0800</pubDate>
+                
+                    <author>zoukun200@gmail.com (天天)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                <description>&lt;h3 id=&#34;sql语句执行阶段&#34;&gt;sql语句执行阶段&lt;/h3&gt;
+&lt;p&gt;当mysql客户端发送一个sql请求到server端时，会一次通过mysql的连接器，分析器，优化器，执行器，然后才进入存储引擎&lt;/p&gt;</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>Jvm02 - RunTime Data Areas</title>
+                <link>https://Ethan-Zou.gitub.io/posts/jvm02/</link>
+                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/jvm02/</guid>
+                <pubDate>Mon, 15 Jul 2019 19:43:07 &#43;0800</pubDate>
+                
+                    <author>zoukun200@gmail.com (天天)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                <description>&lt;h3 id=&#34;java运行时数据区结构&#34;&gt;Java运行时数据区结构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;PC,program counter,每个JVM线程都有一个自己的程序计数器，存放着指令位置，虚拟机的运行类似这样：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;while(not end){
+取PC中的位置，找到对应位置的指令;
+执行指令;
+PC++;
+}&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;JVM stacks， 每一个线程对应一个栈，每个方法对应一个栈帧&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;native method stacks， 对应于本地方法的栈，c\c++代码的栈，像java代码里调用JNI本地方法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Direct Memory，直接内存，JVM可以访问内核空间的内存，BIO零拷贝技术，提高性能&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>Jvm 内存模型</title>
+                <link>https://Ethan-Zou.gitub.io/posts/jvm01/</link>
+                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/jvm01/</guid>
+                <pubDate>Sun, 14 Jul 2019 17:05:10 &#43;0800</pubDate>
+                
+                    <author>zoukun200@gmail.com (天天)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                <description>&lt;h3 id=&#34;存储器层次结构&#34;&gt;存储器层次结构&lt;/h3&gt;
+&lt;p&gt;CPU存储数据是从L0到L6的层次一层层往下找的，找到了就会放到就近的缓存中，一层一层的缓存，保证高效率的读取。&lt;/p&gt;
+&lt;p&gt;从存取速度和成本来划分为L0~L6：&lt;/p&gt;</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>Jvm初识</title>
+                <link>https://Ethan-Zou.gitub.io/posts/jvm/</link>
+                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/jvm/</guid>
+                <pubDate>Sat, 13 Jul 2019 12:13:58 &#43;0800</pubDate>
+                
+                    <author>zoukun200@gmail.com (天天)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                <description>&lt;h3 id=&#34;jvm-基础结构&#34;&gt;jvm 基础结构&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;jvm_struct.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;编写好的每个.java代码文件经过编译后成为class文件，运行程序时这些class文件连同它所有依赖的库，都会被类加载器加载到内存，然后再对代码class文件进行即时编译或解释。&lt;/p&gt;
+&lt;p&gt;对于频繁用到的代码段，jvm会编译一次，后续执行会更快，其他代码会使用字节码解释器进行解释，以提高跨平台性。&lt;/p&gt;
+&lt;p&gt;做为跨语言的平台，JVM是一套语言规范，只要能按照规范生产JVM要求的class文件，就可以在JVM里执行代码，所以JVM不只是可以用java语言，目前以及有很多语言实现了在jvm中运行：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jvm_s2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;jvm给出了不同操作系统的实现，屏蔽了系统的个性，使各种jvm中的语言得到了跨平台的特性。&lt;/p&gt;
+&lt;p&gt;JVM可以想象成一台虚拟出来的一台计算机，他有自己的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;字节码指令集（汇编语言）&lt;/li&gt;
+&lt;li&gt;内存管理： 栈，堆，方法区等&lt;/li&gt;
+&lt;/ul&gt;</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>Zookeeper</title>
+                <link>https://Ethan-Zou.gitub.io/posts/zookeeper/</link>
+                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/zookeeper/</guid>
+                <pubDate>Sun, 07 Jul 2019 00:01:28 &#43;0800</pubDate>
+                
+                    <author>zoukun200@gmail.com (天天)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                <description>&lt;blockquote&gt;
+&lt;p&gt;Zookeeper是分布式系统中常用地分布式协调服务，它给出了基本的原语操作，分布式程序可以基于这些原语构建更多高级的功能，比如服务的同步，配置管理，以及分布式锁等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+&lt;p&gt;官方网站下载最新稳定版编译好的tar.gz文件，解压文件，然后修改配置，分别安装到四台主机上。默认已经安装JDK&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;准备4台主机，设置好主机名便于他们之间通信
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@zookeeper-node04 ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# hostnamectl set-hostname zookeeper-node04&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@zookeeper-node04 ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# cat /etc/hosts&lt;/span&gt;
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.149.29 zookeeper-node01
+192.168.149.30 zookeeper-node02
+192.168.149.31 zookeeper-node03
+192.168.149.32 zookeeper-node04
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>Nginx</title>
+                <link>https://Ethan-Zou.gitub.io/posts/nginx/</link>
+                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/nginx/</guid>
+                <pubDate>Sat, 06 Jul 2019 00:22:10 &#43;0800</pubDate>
+                
+                    <author>zoukun200@gmail.com (天天)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                <description>&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+&lt;p&gt;下载gz文件，解压并编译&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@nginx ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ls&lt;/span&gt;
+anaconda-ks.cfg  nginx-1.20.1.tar.gz
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@nginx ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# tar -zxf nginx-1.20.1.tar.gz &lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@nginx nginx-1.20.1&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ./configure --prefix=/usr/local/nginx&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;发现执行configure错误，在centos7.6下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;./configure: error: the HTTP rewrite module requires the PCRE library.
+You can either disable the module by using --without-http_rewrite_module
+option, or install the PCRE library into the system, or build the PCRE library
+statically from the source with nginx by using --with-pcre=&amp;lt;path&amp;gt; option.
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>ROCKETMQ 消息中间件</title>
+                <link>https://Ethan-Zou.gitub.io/posts/rocketmq/</link>
+                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/rocketmq/</guid>
+                <pubDate>Wed, 10 Apr 2019 16:25:05 &#43;0800</pubDate>
+                
+                    <author>zoukun200@gmail.com (天天)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                <description>&lt;blockquote&gt;
+&lt;p&gt;RocketMq 是阿里开源的一个高性能，分布式消息中间件，运行机制类似kafka但是又有许多不同之处，对于一些特殊场景更适合RocketMq。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;rocketmq的组件角色&#34;&gt;RocketMq的组件角色&lt;/h3&gt;
+&lt;p&gt;RocketMq中有以下几个组件组成：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- NameServer， 负责存储Brocker的信息，用于MessageQueue的路由
+- Producer， 消息生产者
+- Consumer， 消息消费者
+- Brocker， 负责实际的消息存储与分发
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;NamerServer可以是多台，每个NamerServer是独立的，不相互通信，每个Brocker启动时都会连接到每个NameServer，注册自己的信息，每个Brocker和NameServer都保持心跳机制。&lt;/p&gt;
+&lt;p&gt;当消息产生或消费时，Producer和Consumer首先从NameServer处获取Brocker列表信息，选择一个Brocker，然后直接发送或拉取消息。&lt;/p&gt;
+&lt;p&gt;消息的消费是以group为单位，消费模式默认为集群模式，即同一个组里的消费者只要有一个消费者消费掉对应的topic消息，同一组的其他消费者不再消费相同的消息。&lt;/p&gt;
+&lt;p&gt;当消费模式为广播时，所有的订阅消费者都会消费到消息。&lt;/p&gt;</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>JAVA 动态代理</title>
+                <link>https://Ethan-Zou.gitub.io/posts/jdk_dynamic_proxy/</link>
+                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/jdk_dynamic_proxy/</guid>
+                <pubDate>Fri, 29 Mar 2019 16:25:05 &#43;0800</pubDate>
+                
+                    <author>zoukun200@gmail.com (天天)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                <description>&lt;blockquote&gt;
+&lt;p&gt;动态代理是设计模式中的一种，经常用于程序中的方法拦截，来实现跟踪调用，日志记录等功能。利于srping框架中的aop,已经 Cglib 库中通过字节码实现的代理模式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文主要介绍Jdk中动态代理机制，jdk1.8中动态代理源码分析，以及 Cglib 库中动态代理的实现。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>JAVA 容器</title>
+                <link>https://Ethan-Zou.gitub.io/posts/java_collections/</link>
+                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/java_collections/</guid>
+                <pubDate>Wed, 20 Mar 2019 15:13:27 &#43;0800</pubDate>
+                
+                    <author>zoukun200@gmail.com (天天)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                <description>&lt;blockquote&gt;
+&lt;p&gt;容器又可以称做集合，是内存中用来存放数据的地方，根据不同的算法和数据结构来解决多种场景出现的问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;JAVA容器中主要包含Collection和Map两大类容器接口，其中Collection里又分出List, Set, 以及Queue三个接口， 每个接口jdk已经给我们提供了许多实现。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
+        
+    </channel>
+</rss>
