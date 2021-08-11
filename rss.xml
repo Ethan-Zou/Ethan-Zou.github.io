@@ -8,7 +8,7 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>天天的博客</title>
-        <link>https://Ethan-Zou.gitub.io/</link>
+        <link>https://blog.zoukun.net/</link>
         <description>天天的个人博客</description>
         <generator>Hugo 0.82.0 https://gohugo.io/</generator>
         
@@ -23,15 +23,68 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Tue, 27 Jul 2021 01:59:50 &#43;0800</lastBuildDate>
+        <lastBuildDate>Thu, 12 Aug 2021 00:51:11 &#43;0800</lastBuildDate>
         
-            <atom:link rel="self" type="application/rss&#43;xml" href="https://Ethan-Zou.gitub.io/rss.xml" />
+            <atom:link rel="self" type="application/rss&#43;xml" href="https://blog.zoukun.net/rss.xml" />
         
         
             <item>
+                <title>K8s</title>
+                <link>https://blog.zoukun.net/posts/k8s/</link>
+                <guid isPermaLink="true">https://blog.zoukun.net/posts/k8s/</guid>
+                <pubDate>Fri, 09 Aug 2019 16:10:51 &#43;0800</pubDate>
+                
+                    <author>zoukun200@gmail.com (天天)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                <description>&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;准备机器，4台机器分别为：
+&lt;ul&gt;
+&lt;li&gt;Rancher Server ,2核8G内存&lt;/li&gt;
+&lt;li&gt;k8s master，2核4G&lt;/li&gt;
+&lt;li&gt;k8s worker01，2核4G&lt;/li&gt;
+&lt;li&gt;k8s worker02，2核4G&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;安装docker
+在RancherServer上安装docker，可以设置自己的阿里云镜像加速
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@rancher_server ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# yum update &amp;amp;&amp;amp; yum makecache&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@rancher_server ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# yum install -y yum-utils&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@rancher_server ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# yum-config-manager  --add-repo https://download.docker.com/linux/centos/docker-ce.repo&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@rancher_server ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# yum install -y docker-ce-18.09*&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@rancher_server ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# docker run -d --restart=unless-stopped --privileged  -p 80:80 -p 443:443 rancher/rancher&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;安装完rancherServer后，通过网页访问rancher,添加k8s集群。&lt;/p&gt;</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
+        
+            <item>
                 <title>Mysql 索引</title>
-                <link>https://Ethan-Zou.gitub.io/posts/mysql_index/</link>
-                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/mysql_index/</guid>
+                <link>https://blog.zoukun.net/posts/mysql_index/</link>
+                <guid isPermaLink="true">https://blog.zoukun.net/posts/mysql_index/</guid>
                 <pubDate>Sat, 27 Jul 2019 21:48:04 &#43;0800</pubDate>
                 
                     <author>zoukun200@gmail.com (天天)</author>
@@ -55,8 +108,8 @@
         
             <item>
                 <title>Mysql 优化</title>
-                <link>https://Ethan-Zou.gitub.io/posts/mysql_optimise/</link>
-                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/mysql_optimise/</guid>
+                <link>https://blog.zoukun.net/posts/mysql_optimise/</link>
+                <guid isPermaLink="true">https://blog.zoukun.net/posts/mysql_optimise/</guid>
                 <pubDate>Fri, 26 Jul 2019 17:01:29 &#43;0800</pubDate>
                 
                     <author>zoukun200@gmail.com (天天)</author>
@@ -79,8 +132,8 @@
         
             <item>
                 <title>Jvm02 - RunTime Data Areas</title>
-                <link>https://Ethan-Zou.gitub.io/posts/jvm02/</link>
-                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/jvm02/</guid>
+                <link>https://blog.zoukun.net/posts/jvm02/</link>
+                <guid isPermaLink="true">https://blog.zoukun.net/posts/jvm02/</guid>
                 <pubDate>Mon, 15 Jul 2019 19:43:07 &#43;0800</pubDate>
                 
                     <author>zoukun200@gmail.com (天天)</author>
@@ -123,8 +176,8 @@ PC++;
         
             <item>
                 <title>Jvm 内存模型</title>
-                <link>https://Ethan-Zou.gitub.io/posts/jvm01/</link>
-                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/jvm01/</guid>
+                <link>https://blog.zoukun.net/posts/jvm01/</link>
+                <guid isPermaLink="true">https://blog.zoukun.net/posts/jvm01/</guid>
                 <pubDate>Sun, 14 Jul 2019 17:05:10 &#43;0800</pubDate>
                 
                     <author>zoukun200@gmail.com (天天)</author>
@@ -148,8 +201,8 @@ PC++;
         
             <item>
                 <title>Jvm初识</title>
-                <link>https://Ethan-Zou.gitub.io/posts/jvm/</link>
-                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/jvm/</guid>
+                <link>https://blog.zoukun.net/posts/jvm/</link>
+                <guid isPermaLink="true">https://blog.zoukun.net/posts/jvm/</guid>
                 <pubDate>Sat, 13 Jul 2019 12:13:58 &#43;0800</pubDate>
                 
                     <author>zoukun200@gmail.com (天天)</author>
@@ -182,8 +235,8 @@ PC++;
         
             <item>
                 <title>Zookeeper</title>
-                <link>https://Ethan-Zou.gitub.io/posts/zookeeper/</link>
-                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/zookeeper/</guid>
+                <link>https://blog.zoukun.net/posts/zookeeper/</link>
+                <guid isPermaLink="true">https://blog.zoukun.net/posts/zookeeper/</guid>
                 <pubDate>Sun, 07 Jul 2019 00:01:28 &#43;0800</pubDate>
                 
                     <author>zoukun200@gmail.com (天天)</author>
@@ -235,8 +288,8 @@ PC++;
         
             <item>
                 <title>Nginx</title>
-                <link>https://Ethan-Zou.gitub.io/posts/nginx/</link>
-                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/nginx/</guid>
+                <link>https://blog.zoukun.net/posts/nginx/</link>
+                <guid isPermaLink="true">https://blog.zoukun.net/posts/nginx/</guid>
                 <pubDate>Sat, 06 Jul 2019 00:22:10 &#43;0800</pubDate>
                 
                     <author>zoukun200@gmail.com (天天)</author>
@@ -291,8 +344,8 @@ statically from the source with nginx by using --with-pcre=&amp;lt;path&amp;gt; 
         
             <item>
                 <title>ROCKETMQ 消息中间件</title>
-                <link>https://Ethan-Zou.gitub.io/posts/rocketmq/</link>
-                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/rocketmq/</guid>
+                <link>https://blog.zoukun.net/posts/rocketmq/</link>
+                <guid isPermaLink="true">https://blog.zoukun.net/posts/rocketmq/</guid>
                 <pubDate>Wed, 10 Apr 2019 16:25:05 &#43;0800</pubDate>
                 
                     <author>zoukun200@gmail.com (天天)</author>
@@ -327,8 +380,8 @@ statically from the source with nginx by using --with-pcre=&amp;lt;path&amp;gt; 
         
             <item>
                 <title>JAVA 动态代理</title>
-                <link>https://Ethan-Zou.gitub.io/posts/jdk_dynamic_proxy/</link>
-                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/jdk_dynamic_proxy/</guid>
+                <link>https://blog.zoukun.net/posts/jdk_dynamic_proxy/</link>
+                <guid isPermaLink="true">https://blog.zoukun.net/posts/jdk_dynamic_proxy/</guid>
                 <pubDate>Fri, 29 Mar 2019 16:25:05 &#43;0800</pubDate>
                 
                     <author>zoukun200@gmail.com (天天)</author>
@@ -355,8 +408,8 @@ statically from the source with nginx by using --with-pcre=&amp;lt;path&amp;gt; 
         
             <item>
                 <title>JAVA 容器</title>
-                <link>https://Ethan-Zou.gitub.io/posts/java_collections/</link>
-                <guid isPermaLink="true">https://Ethan-Zou.gitub.io/posts/java_collections/</guid>
+                <link>https://blog.zoukun.net/posts/java_collections/</link>
+                <guid isPermaLink="true">https://blog.zoukun.net/posts/java_collections/</guid>
                 <pubDate>Wed, 20 Mar 2019 15:13:27 &#43;0800</pubDate>
                 
                     <author>zoukun200@gmail.com (天天)</author>

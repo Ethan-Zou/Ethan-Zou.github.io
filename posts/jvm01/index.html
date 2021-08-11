@@ -48,7 +48,7 @@
     
 
     
-    <link rel="canonical" href="https://Ethan-Zou.gitub.io/posts/jvm01/" />
+    <link rel="canonical" href="https://blog.zoukun.net/posts/jvm01/" />
     
 
 <script type="application/ld+json">
@@ -56,20 +56,20 @@
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "datePublished": "2019-07-14T17:05:10+08:00",
-        "dateModified": "2021-07-27T00:55:28+08:00",
-        "url": "https://Ethan-Zou.gitub.io/posts/jvm01/",
+        "dateModified": "2021-07-29T09:27:36+08:00",
+        "url": "https://blog.zoukun.net/posts/jvm01/",
         "headline": "Jvm 内存模型",
         "description": "存储器层次结构 CPU存储数据是从L0到L6的层次一层层往下找的，找到了就会放到就近的缓存中，一层一层的缓存，保证高效率的读取。\n从存取速度和成本来划分为L0~L6：\n",
         "inLanguage" : "zh-CN",
         "articleSection": "posts",
-        "wordCount":  3203 ,
-        "image": ["https://Ethan-Zou.gitub.io/memory-hierarchy.png","https://Ethan-Zou.gitub.io/m2.png","https://Ethan-Zou.gitub.io/m3.png","https://Ethan-Zou.gitub.io/volatile.png","https://Ethan-Zou.gitub.io/sync.png","https://Ethan-Zou.gitub.io/obj.png","https://Ethan-Zou.gitub.io/markword_cpp.png","https://Ethan-Zou.gitub.io/markword.png","https://Ethan-Zou.gitub.io/locate.png","https://Ethan-Zou.gitub.io/locate2.png"],
+        "wordCount":  3204 ,
+        "image": ["https://blog.zoukun.net/memory-hierarchy.png","https://blog.zoukun.net/m2.png","https://blog.zoukun.net/m3.png","https://blog.zoukun.net/volatile.png","https://blog.zoukun.net/sync.png","https://blog.zoukun.net/obj.png","https://blog.zoukun.net/markword_cpp.png","https://blog.zoukun.net/markword.png","https://blog.zoukun.net/locate.png","https://blog.zoukun.net/locate2.png"],
         "author": {
             "@type": "Person",
             "description": "Show me the code",
             "email": "zoukun200@gmail.com",
-            "image": "https://Ethan-Zou.gitub.io/icons/apple-touch-icon.png",
-            "url": "https://zoukun.net/",
+            "image": "https://blog.zoukun.net/icons/apple-touch-icon.png",
+            "url": "https://blog.zoukun.net/",
             "name": "天天"
         },
         "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)",
@@ -78,13 +78,13 @@
             "name": "天天的博客",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://Ethan-Zou.gitub.io/icons/apple-touch-icon.png"
+                "url": "https://blog.zoukun.net/icons/apple-touch-icon.png"
             },
-            "url": "https://Ethan-Zou.gitub.io/"
+            "url": "https://blog.zoukun.net/"
         },
         "mainEntityOfPage": {
             "@type": "WebSite",
-            "@id": "https://Ethan-Zou.gitub.io/"
+            "@id": "https://blog.zoukun.net/"
         }
     }
 </script>
@@ -105,12 +105,12 @@
 <meta property="og:description" content="存储器层次结构 CPU存储数据是从L0到L6的层次一层层往下找的，找到了就会放到就近的缓存中，一层一层的缓存，保证高效率的读取。
 从存取速度和成本来划分为L0~L6：
 " />
-<meta property="og:url" content="https://Ethan-Zou.gitub.io/posts/jvm01/" />
+<meta property="og:url" content="https://blog.zoukun.net/posts/jvm01/" />
 <meta property="og:site_name" content="天天的博客" />
-<meta property="og:locale" content="zh" /><meta property="og:image" content="https://Ethan-Zou.gitub.io/memory-hierarchy.png" />
+<meta property="og:locale" content="zh" /><meta property="og:image" content="https://blog.zoukun.net/memory-hierarchy.png" />
 <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2019-07-14T17:05:10&#43;08:00" />
-    <meta property="article:modified_time" content="2021-07-27T00:55:28&#43;08:00" />
+    <meta property="article:modified_time" content="2021-07-29T09:27:36&#43;08:00" />
     
     <meta property="article:section" content="posts" />
 
@@ -221,7 +221,7 @@
     
     
         
-        <time datetime="2021-07-27T00:55:28&#43;08:00" class="post-meta-item modified dt-updated"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"/></svg>&nbsp;2021.7.27</time>
+        <time datetime="2021-07-29T09:27:36&#43;08:00" class="post-meta-item modified dt-updated"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"/></svg>&nbsp;2021.7.29</time>
     
     
     
@@ -233,7 +233,7 @@
     
     
         
-        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;3203</span>
+        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;3204</span>
     
     
         
@@ -255,15 +255,15 @@
 <img src="m2.png" alt="">
 两个线程都读取到了x，y，有一个线程修改了x，但是另外一个线程却还保持老的x的值</p>
 <p>多线程一致性在硬件层的支持：
-最单的方法是使用总线锁，当一个cpu访问数据的时候，其他cpu不能访问，这种老的cpu使用的策略有性能问题。
+最简单的方法是使用总线锁，当一个cpu访问数据的时候，其他cpu不能访问，这种老的cpu使用的策略有性能问题。
 <img src="m3.png" alt="">
 修的CPU使用的更巧妙的设计，不同cpu厂商使用的方法有差异，这里介绍intel cpu使用的一致性协议（MESI协议）：
 cpu每个缓存行标记四种状态（额外两位）</p>
 <ul>
 <li>Modified, cpu从主存中读取了一个数据x，如果这个x跟主存的数据相比更改过，则标记为Modified</li>
-<li>Exclusive, 如果读取的数据是当前cpu独享的，则标记为EXclusive</li>
+<li>Exclusive, 如果读取的数据是当前cpu独享的，则标记为Exclusive</li>
 <li>Shared, 如果我在读的数据别的cpu也在读，标记为Shared</li>
-<li>Invalid，如果我读到的数据，已经被别的cpu该过了，说明这个数据已经失效了，标记为Invalid</li>
+<li>Invalid，如果我读到的数据，已经被别的cpu改过了，说明这个数据已经失效了，标记为Invalid</li>
 </ul>
 <p>跨越多个缓存行的数据不能使用此缓存锁，所以现在cpu数据一致性使用缓存锁和总线锁一起来实现的。</p>
 <p>什么是缓存行？
@@ -734,13 +734,13 @@ t直接指向对象，对象里包好T.class指针，一次查找效率高。
     
     
         <ul class="post-copyright">
-            <li class="copyright-item author"><span class="copyright-item-text">作者</span>：<a href="https://zoukun.net/" class="p-author h-card" target="_blank" rel="noopener">天天</a></li>
+            <li class="copyright-item author"><span class="copyright-item-text">作者</span>：<a href="https://blog.zoukun.net/" class="p-author h-card" target="_blank" rel="noopener">天天</a></li>
             
                 
                 
                 
                 
-                <li class="copyright-item link"><span class="copyright-item-text">链接</span>：<a href="/posts/jvm01/" target="_blank" rel="noopener">https://Ethan-Zou.gitub.io/posts/jvm01/</a></li>
+                <li class="copyright-item link"><span class="copyright-item-text">链接</span>：<a href="/posts/jvm01/" target="_blank" rel="noopener">https://blog.zoukun.net/posts/jvm01/</a></li>
             
             <li class="copyright-item license"><span class="copyright-item-text">许可</span>：<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></li>
             
@@ -755,9 +755,9 @@ t直接指向对象，对象里包好T.class指针，一次查找效率高。
 
         
     <div class="updated-badge-container">
-        <span title="Updated @ 2021-07-27 00:55:28 CST" style="cursor:help">
+        <span title="Updated @ 2021-07-29 09:27:36 CST" style="cursor:help">
 
-<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2021-07-27</text><text x="915" y="140" textLength="650" transform="scale(.1)">2021-07-27</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2021-07-29</text><text x="915" y="140" textLength="650" transform="scale(.1)">2021-07-29</text></g></svg>
         </span></div>
 
 
@@ -786,14 +786,14 @@ t直接指向对象，对象里包好T.class指针，一次查找效率高。
             
                 <div class="share-item qq">
                     
-                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://Ethan-Zou.gitub.io/posts/jvm01/&amp;title=Jvm%20%e5%86%85%e5%ad%98%e6%a8%a1%e5%9e%8b&amp;summary=%e5%ad%98%e5%82%a8%e5%99%a8%e5%b1%82%e6%ac%a1%e7%bb%93%e6%9e%84%20CPU%e5%ad%98%e5%82%a8%e6%95%b0%e6%8d%ae%e6%98%af%e4%bb%8eL0%e5%88%b0L6%e7%9a%84%e5%b1%82%e6%ac%a1%e4%b8%80%e5%b1%82%e5%b1%82%e5%be%80%e4%b8%8b%e6%89%be%e7%9a%84%ef%bc%8c%e6%89%be%e5%88%b0%e4%ba%86%e5%b0%b1%e4%bc%9a%e6%94%be%e5%88%b0%e5%b0%b1%e8%bf%91%e7%9a%84%e7%bc%93%e5%ad%98%e4%b8%ad%ef%bc%8c%e4%b8%80%e5%b1%82%e4%b8%80%e5%b1%82%e7%9a%84%e7%bc%93%e5%ad%98%ef%bc%8c%e4%bf%9d%e8%af%81%e9%ab%98%e6%95%88%e7%8e%87%e7%9a%84%e8%af%bb%e5%8f%96%e3%80%82%0a%e4%bb%8e%e5%ad%98%e5%8f%96%e9%80%9f%e5%ba%a6%e5%92%8c%e6%88%90%e6%9c%ac%e6%9d%a5%e5%88%92%e5%88%86%e4%b8%baL0~L6%ef%bc%9a%0a&amp;pics=https://Ethan-Zou.gitub.io/memory-hierarchy.png&amp;site=%e5%a4%a9%e5%a4%a9%e7%9a%84%e5%8d%9a%e5%ae%a2" title="分享到「QQ」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
+                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://blog.zoukun.net/posts/jvm01/&amp;title=Jvm%20%e5%86%85%e5%ad%98%e6%a8%a1%e5%9e%8b&amp;summary=%e5%ad%98%e5%82%a8%e5%99%a8%e5%b1%82%e6%ac%a1%e7%bb%93%e6%9e%84%20CPU%e5%ad%98%e5%82%a8%e6%95%b0%e6%8d%ae%e6%98%af%e4%bb%8eL0%e5%88%b0L6%e7%9a%84%e5%b1%82%e6%ac%a1%e4%b8%80%e5%b1%82%e5%b1%82%e5%be%80%e4%b8%8b%e6%89%be%e7%9a%84%ef%bc%8c%e6%89%be%e5%88%b0%e4%ba%86%e5%b0%b1%e4%bc%9a%e6%94%be%e5%88%b0%e5%b0%b1%e8%bf%91%e7%9a%84%e7%bc%93%e5%ad%98%e4%b8%ad%ef%bc%8c%e4%b8%80%e5%b1%82%e4%b8%80%e5%b1%82%e7%9a%84%e7%bc%93%e5%ad%98%ef%bc%8c%e4%bf%9d%e8%af%81%e9%ab%98%e6%95%88%e7%8e%87%e7%9a%84%e8%af%bb%e5%8f%96%e3%80%82%0a%e4%bb%8e%e5%ad%98%e5%8f%96%e9%80%9f%e5%ba%a6%e5%92%8c%e6%88%90%e6%9c%ac%e6%9d%a5%e5%88%92%e5%88%86%e4%b8%baL0~L6%ef%bc%9a%0a&amp;pics=https://blog.zoukun.net/memory-hierarchy.png&amp;site=%e5%a4%a9%e5%a4%a9%e7%9a%84%e5%8d%9a%e5%ae%a2" title="分享到「QQ」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
                 </div>
             
 
             
                 <div class="share-item qzone">
                     
-                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://Ethan-Zou.gitub.io/posts/jvm01/&amp;title=Jvm%20%e5%86%85%e5%ad%98%e6%a8%a1%e5%9e%8b&amp;summary=%e5%ad%98%e5%82%a8%e5%99%a8%e5%b1%82%e6%ac%a1%e7%bb%93%e6%9e%84%20CPU%e5%ad%98%e5%82%a8%e6%95%b0%e6%8d%ae%e6%98%af%e4%bb%8eL0%e5%88%b0L6%e7%9a%84%e5%b1%82%e6%ac%a1%e4%b8%80%e5%b1%82%e5%b1%82%e5%be%80%e4%b8%8b%e6%89%be%e7%9a%84%ef%bc%8c%e6%89%be%e5%88%b0%e4%ba%86%e5%b0%b1%e4%bc%9a%e6%94%be%e5%88%b0%e5%b0%b1%e8%bf%91%e7%9a%84%e7%bc%93%e5%ad%98%e4%b8%ad%ef%bc%8c%e4%b8%80%e5%b1%82%e4%b8%80%e5%b1%82%e7%9a%84%e7%bc%93%e5%ad%98%ef%bc%8c%e4%bf%9d%e8%af%81%e9%ab%98%e6%95%88%e7%8e%87%e7%9a%84%e8%af%bb%e5%8f%96%e3%80%82%0a%e4%bb%8e%e5%ad%98%e5%8f%96%e9%80%9f%e5%ba%a6%e5%92%8c%e6%88%90%e6%9c%ac%e6%9d%a5%e5%88%92%e5%88%86%e4%b8%baL0~L6%ef%bc%9a%0a&amp;pics=https://Ethan-Zou.gitub.io/memory-hierarchy.png&amp;site=%e5%a4%a9%e5%a4%a9%e7%9a%84%e5%8d%9a%e5%ae%a2" title="分享到「QQ 空间」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
+                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.zoukun.net/posts/jvm01/&amp;title=Jvm%20%e5%86%85%e5%ad%98%e6%a8%a1%e5%9e%8b&amp;summary=%e5%ad%98%e5%82%a8%e5%99%a8%e5%b1%82%e6%ac%a1%e7%bb%93%e6%9e%84%20CPU%e5%ad%98%e5%82%a8%e6%95%b0%e6%8d%ae%e6%98%af%e4%bb%8eL0%e5%88%b0L6%e7%9a%84%e5%b1%82%e6%ac%a1%e4%b8%80%e5%b1%82%e5%b1%82%e5%be%80%e4%b8%8b%e6%89%be%e7%9a%84%ef%bc%8c%e6%89%be%e5%88%b0%e4%ba%86%e5%b0%b1%e4%bc%9a%e6%94%be%e5%88%b0%e5%b0%b1%e8%bf%91%e7%9a%84%e7%bc%93%e5%ad%98%e4%b8%ad%ef%bc%8c%e4%b8%80%e5%b1%82%e4%b8%80%e5%b1%82%e7%9a%84%e7%bc%93%e5%ad%98%ef%bc%8c%e4%bf%9d%e8%af%81%e9%ab%98%e6%95%88%e7%8e%87%e7%9a%84%e8%af%bb%e5%8f%96%e3%80%82%0a%e4%bb%8e%e5%ad%98%e5%8f%96%e9%80%9f%e5%ba%a6%e5%92%8c%e6%88%90%e6%9c%ac%e6%9d%a5%e5%88%92%e5%88%86%e4%b8%baL0~L6%ef%bc%9a%0a&amp;pics=https://blog.zoukun.net/memory-hierarchy.png&amp;site=%e5%a4%a9%e5%a4%a9%e7%9a%84%e5%8d%9a%e5%ae%a2" title="分享到「QQ 空间」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
                 </div>
             
 
@@ -807,7 +807,7 @@ t直接指向对象，对象里包好T.class指针，一次查找效率高。
     var typeNumber = 0;
     var errorCorrectionLevel = 'L';
     var qr = qrcode(typeNumber, errorCorrectionLevel);
-    qr.addData('https:\/\/Ethan-Zou.gitub.io\/posts\/jvm01\/');
+    qr.addData('https:\/\/blog.zoukun.net\/posts\/jvm01\/');
     qr.make();
     document.getElementById('qrcode-img').innerHTML = qr.createImgTag();
 </script>

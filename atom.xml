@@ -4,27 +4,82 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">天天的博客</title>
     <subtitle type="html">天天的个人博客</subtitle>
-    <updated>2021-07-27T01:59:50&#43;08:00</updated>
-    <id>https://Ethan-Zou.gitub.io/</id>
-    <link rel="alternate" type="text/html" href="https://Ethan-Zou.gitub.io/" />
-    <link rel="self" type="application/atom&#43;xml" href="https://Ethan-Zou.gitub.io/atom.xml" />
+    <updated>2021-08-12T00:51:11&#43;08:00</updated>
+    <id>https://blog.zoukun.net/</id>
+    <link rel="alternate" type="text/html" href="https://blog.zoukun.net/" />
+    <link rel="self" type="application/atom&#43;xml" href="https://blog.zoukun.net/atom.xml" />
     <author>
             <name>天天</name>
-            <uri>https://Ethan-Zou.gitub.io/</uri>
+            <uri>https://blog.zoukun.net/</uri>
             
                 <email>zoukun200@gmail.com</email>
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.82.0">Hugo</generator>
         <entry>
+            <title type="text">K8s</title>
+            <link rel="alternate" type="text/html" href="https://blog.zoukun.net/posts/k8s/" />
+            <id>https://blog.zoukun.net/posts/k8s/</id>
+            <updated>2021-08-12T00:15:30&#43;08:00</updated>
+            <published>2019-08-09T16:10:51&#43;08:00</published>
+            <author>
+                    <name>天天</name>
+                    <uri>https://blog.zoukun.net/</uri>
+                    <email>zoukun200@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;准备机器，4台机器分别为：
+&lt;ul&gt;
+&lt;li&gt;Rancher Server ,2核8G内存&lt;/li&gt;
+&lt;li&gt;k8s master，2核4G&lt;/li&gt;
+&lt;li&gt;k8s worker01，2核4G&lt;/li&gt;
+&lt;li&gt;k8s worker02，2核4G&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;安装docker
+在RancherServer上安装docker，可以设置自己的阿里云镜像加速
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@rancher_server ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# yum update &amp;amp;&amp;amp; yum makecache&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@rancher_server ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# yum install -y yum-utils&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@rancher_server ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# yum-config-manager  --add-repo https://download.docker.com/linux/centos/docker-ce.repo&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@rancher_server ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# yum install -y docker-ce-18.09*&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@rancher_server ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# docker run -d --restart=unless-stopped --privileged  -p 80:80 -p 443:443 rancher/rancher&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;安装完rancherServer后，通过网页访问rancher,添加k8s集群。&lt;/p&gt;</summary>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                
+            
+        </entry>
+    
+        <entry>
             <title type="text">Mysql 索引</title>
-            <link rel="alternate" type="text/html" href="https://Ethan-Zou.gitub.io/posts/mysql_index/" />
-            <id>https://Ethan-Zou.gitub.io/posts/mysql_index/</id>
-            <updated>2021-07-27T01:12:14&#43;08:00</updated>
+            <link rel="alternate" type="text/html" href="https://blog.zoukun.net/posts/mysql_index/" />
+            <id>https://blog.zoukun.net/posts/mysql_index/</id>
+            <updated>2021-07-29T11:22:52&#43;08:00</updated>
             <published>2019-07-27T21:48:04&#43;08:00</published>
             <author>
                     <name>天天</name>
-                    <uri>https://zoukun.net/</uri>
+                    <uri>https://blog.zoukun.net/</uri>
                     <email>zoukun200@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;blockquote&gt;
@@ -45,13 +100,13 @@
     
         <entry>
             <title type="text">Mysql 优化</title>
-            <link rel="alternate" type="text/html" href="https://Ethan-Zou.gitub.io/posts/mysql_optimise/" />
-            <id>https://Ethan-Zou.gitub.io/posts/mysql_optimise/</id>
+            <link rel="alternate" type="text/html" href="https://blog.zoukun.net/posts/mysql_optimise/" />
+            <id>https://blog.zoukun.net/posts/mysql_optimise/</id>
             <updated>2021-07-27T00:57:42&#43;08:00</updated>
             <published>2019-07-26T17:01:29&#43;08:00</published>
             <author>
                     <name>天天</name>
-                    <uri>https://zoukun.net/</uri>
+                    <uri>https://blog.zoukun.net/</uri>
                     <email>zoukun200@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;h3 id=&#34;sql语句执行阶段&#34;&gt;sql语句执行阶段&lt;/h3&gt;
@@ -71,13 +126,13 @@
     
         <entry>
             <title type="text">Jvm02 - RunTime Data Areas</title>
-            <link rel="alternate" type="text/html" href="https://Ethan-Zou.gitub.io/posts/jvm02/" />
-            <id>https://Ethan-Zou.gitub.io/posts/jvm02/</id>
-            <updated>2021-07-27T00:56:20&#43;08:00</updated>
+            <link rel="alternate" type="text/html" href="https://blog.zoukun.net/posts/jvm02/" />
+            <id>https://blog.zoukun.net/posts/jvm02/</id>
+            <updated>2021-08-02T13:36:32&#43;08:00</updated>
             <published>2019-07-15T19:43:07&#43;08:00</published>
             <author>
                     <name>天天</name>
-                    <uri>https://zoukun.net/</uri>
+                    <uri>https://blog.zoukun.net/</uri>
                     <email>zoukun200@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;h3 id=&#34;java运行时数据区结构&#34;&gt;Java运行时数据区结构&lt;/h3&gt;
@@ -117,13 +172,13 @@ PC++;
     
         <entry>
             <title type="text">Jvm 内存模型</title>
-            <link rel="alternate" type="text/html" href="https://Ethan-Zou.gitub.io/posts/jvm01/" />
-            <id>https://Ethan-Zou.gitub.io/posts/jvm01/</id>
-            <updated>2021-07-27T00:55:28&#43;08:00</updated>
+            <link rel="alternate" type="text/html" href="https://blog.zoukun.net/posts/jvm01/" />
+            <id>https://blog.zoukun.net/posts/jvm01/</id>
+            <updated>2021-07-29T09:27:36&#43;08:00</updated>
             <published>2019-07-14T17:05:10&#43;08:00</published>
             <author>
                     <name>天天</name>
-                    <uri>https://zoukun.net/</uri>
+                    <uri>https://blog.zoukun.net/</uri>
                     <email>zoukun200@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;h3 id=&#34;存储器层次结构&#34;&gt;存储器层次结构&lt;/h3&gt;
@@ -144,13 +199,13 @@ PC++;
     
         <entry>
             <title type="text">Jvm初识</title>
-            <link rel="alternate" type="text/html" href="https://Ethan-Zou.gitub.io/posts/jvm/" />
-            <id>https://Ethan-Zou.gitub.io/posts/jvm/</id>
+            <link rel="alternate" type="text/html" href="https://blog.zoukun.net/posts/jvm/" />
+            <id>https://blog.zoukun.net/posts/jvm/</id>
             <updated>2021-07-27T00:53:17&#43;08:00</updated>
             <published>2019-07-13T12:13:58&#43;08:00</published>
             <author>
                     <name>天天</name>
-                    <uri>https://zoukun.net/</uri>
+                    <uri>https://blog.zoukun.net/</uri>
                     <email>zoukun200@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;h3 id=&#34;jvm-基础结构&#34;&gt;jvm 基础结构&lt;/h3&gt;
@@ -180,13 +235,13 @@ PC++;
     
         <entry>
             <title type="text">Zookeeper</title>
-            <link rel="alternate" type="text/html" href="https://Ethan-Zou.gitub.io/posts/zookeeper/" />
-            <id>https://Ethan-Zou.gitub.io/posts/zookeeper/</id>
+            <link rel="alternate" type="text/html" href="https://blog.zoukun.net/posts/zookeeper/" />
+            <id>https://blog.zoukun.net/posts/zookeeper/</id>
             <updated>2021-07-27T00:59:00&#43;08:00</updated>
             <published>2019-07-07T00:01:28&#43;08:00</published>
             <author>
                     <name>天天</name>
-                    <uri>https://zoukun.net/</uri>
+                    <uri>https://blog.zoukun.net/</uri>
                     <email>zoukun200@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;blockquote&gt;
@@ -235,13 +290,13 @@ PC++;
     
         <entry>
             <title type="text">Nginx</title>
-            <link rel="alternate" type="text/html" href="https://Ethan-Zou.gitub.io/posts/nginx/" />
-            <id>https://Ethan-Zou.gitub.io/posts/nginx/</id>
+            <link rel="alternate" type="text/html" href="https://blog.zoukun.net/posts/nginx/" />
+            <id>https://blog.zoukun.net/posts/nginx/</id>
             <updated>2021-07-27T00:59:43&#43;08:00</updated>
             <published>2019-07-06T00:22:10&#43;08:00</published>
             <author>
                     <name>天天</name>
-                    <uri>https://zoukun.net/</uri>
+                    <uri>https://blog.zoukun.net/</uri>
                     <email>zoukun200@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
@@ -293,13 +348,13 @@ statically from the source with nginx by using --with-pcre=&amp;lt;path&amp;gt; 
     
         <entry>
             <title type="text">ROCKETMQ 消息中间件</title>
-            <link rel="alternate" type="text/html" href="https://Ethan-Zou.gitub.io/posts/rocketmq/" />
-            <id>https://Ethan-Zou.gitub.io/posts/rocketmq/</id>
+            <link rel="alternate" type="text/html" href="https://blog.zoukun.net/posts/rocketmq/" />
+            <id>https://blog.zoukun.net/posts/rocketmq/</id>
             <updated>2021-07-27T01:00:21&#43;08:00</updated>
             <published>2019-04-10T16:25:05&#43;08:00</published>
             <author>
                     <name>天天</name>
-                    <uri>https://zoukun.net/</uri>
+                    <uri>https://blog.zoukun.net/</uri>
                     <email>zoukun200@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;blockquote&gt;
@@ -331,13 +386,13 @@ statically from the source with nginx by using --with-pcre=&amp;lt;path&amp;gt; 
     
         <entry>
             <title type="text">JAVA 动态代理</title>
-            <link rel="alternate" type="text/html" href="https://Ethan-Zou.gitub.io/posts/jdk_dynamic_proxy/" />
-            <id>https://Ethan-Zou.gitub.io/posts/jdk_dynamic_proxy/</id>
+            <link rel="alternate" type="text/html" href="https://blog.zoukun.net/posts/jdk_dynamic_proxy/" />
+            <id>https://blog.zoukun.net/posts/jdk_dynamic_proxy/</id>
             <updated>2021-07-27T01:57:55&#43;08:00</updated>
             <published>2019-03-29T16:25:05&#43;08:00</published>
             <author>
                     <name>天天</name>
-                    <uri>https://zoukun.net/</uri>
+                    <uri>https://blog.zoukun.net/</uri>
                     <email>zoukun200@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;blockquote&gt;
@@ -361,13 +416,13 @@ statically from the source with nginx by using --with-pcre=&amp;lt;path&amp;gt; 
     
         <entry>
             <title type="text">JAVA 容器</title>
-            <link rel="alternate" type="text/html" href="https://Ethan-Zou.gitub.io/posts/java_collections/" />
-            <id>https://Ethan-Zou.gitub.io/posts/java_collections/</id>
+            <link rel="alternate" type="text/html" href="https://blog.zoukun.net/posts/java_collections/" />
+            <id>https://blog.zoukun.net/posts/java_collections/</id>
             <updated>2021-07-27T01:57:52&#43;08:00</updated>
             <published>2019-03-20T15:13:27&#43;08:00</published>
             <author>
                     <name>天天</name>
-                    <uri>https://zoukun.net/</uri>
+                    <uri>https://blog.zoukun.net/</uri>
                     <email>zoukun200@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;blockquote&gt;
